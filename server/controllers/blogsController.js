@@ -124,11 +124,11 @@ exports.fetchAllBlogs = async (req, res) => {
 exports.fetchAllBlogsFromDB = async (req, res) => {
   try {
     const blogs = await Blog.find({
-      status: { $in: ["PUBLISHED", "ADMIN_PUBLISHED"] },
-      tags: "Interview Questions",  // TEMP
+      status: { $in: ["PUBLISHED", "ADMIN_PUBLISHED"] }
+      // tags: "Interview Questions",  // TEMP
     })
       .populate("authorDetails")
-      // .populate("blogLikes")  //TEMP
+      .populate("blogLikes")  //TEMP
       // .populate("comments.user", "email userName profilePicture")    //TEMP
       // .populate("comments.commentReplies.replyCommentUser",  "email userName profilePicture")   //TEMP
       .exec();
