@@ -1,0 +1,61 @@
+// Update/Insert in all documents -  field of array of objects
+
+await Blog.updateMany(
+    {},
+    { $set: { 'reviewedBy.$[].Revision11': 'Hello 11' } } // Update all elements in the array field
+  );
+
+================================================================================================
+    // Updating all documents
+    // const allBlogs= await Blog.find();
+    // for (const doc of allBlogs) {
+    //   const { _id, content } = doc; // Assuming the field name is "Title"
+    //   await Blog.updateOne({ _id }, { $set: { 'reviewedBy.$[].Revision': "" } });
+    // }
+    // Ending
+=================================================================================================
+
+  // const abcd= await Reviewer.updateMany({isVerified:true}, {$set: {isEmailVerified:true}});
+  // const abcd= await Reviewer.aggregate([
+  //   {$addFields: {isEmailVerified: false}},
+  //   {$out: "reviewers"}
+  // ]);
+  // console.log(abcd);
+
+  // const fav= await User.aggregate([
+  //   {$addFields: {savedBlogs:[]}},
+  // {$out: "users"}
+  // ]);
+  // console.log(fav);
+
+  ===============================================================================
+
+  // ADDING COLUMN status to User and Reviewer schema
+    //  const fav= await User.aggregate([
+  //   {$addFields: {status:"INACTIVE"}},
+  // {$out: "users"}
+  // ]);
+  // console.log(fav);
+
+  // const abcd= await User.updateMany({isVerified:true}, {$set: {status:"ACTIVE"}});
+  // console.log(abcd);
+
+  //  const fav= await Reviewer.aggregate([
+  //   {$addFields: {status:"INACTIVE"}},
+  // {$out: "reviewers"}
+  // ]);
+  // console.log(fav);
+
+  // const abcd= await Reviewer.updateMany({isVerified:true, isEmailVerified:true}, {$set: {status:"ACTIVE"}});
+  // console.log(abcd);
+
+  //      const fav= await Admin.aggregate([
+  //   {$addFields: {status:"INACTIVE"}},
+  // {$out: "admins"}
+  // ]);
+  // console.log(fav);
+
+  // const abcd= await Admin.updateMany({isVerified:true}, {$set: {status:"ACTIVE"}});
+  // console.log(abcd);
+
+  ==================================================================================================
