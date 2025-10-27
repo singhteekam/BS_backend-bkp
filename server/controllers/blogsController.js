@@ -124,8 +124,8 @@ exports.fetchAllBlogs = async (req, res) => {
 exports.fetchAllBlogsFromDB = async (req, res) => {
   try {
     const blogs = await Blog.find({
-      status: { $in: ["PUBLISHED", "ADMIN_PUBLISHED"] }
-      // tags: "Interview Questions",  // TEMP
+      status: { $in: ["PUBLISHED", "ADMIN_PUBLISHED"] },
+      tags: { $nin: ["Interview Questions"] },  // TEMP
     })
       .populate("authorDetails")
       .populate("blogLikes")  //TEMP
